@@ -1,30 +1,79 @@
-@mixin images($width, $height){
-    width:$width;
-    height:$height;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-@mixin flexSpaceAround(){
-display: flex;
-justify-content: space-around;
-height:  100vh;
-}
-
-.distortion{
-    @include images(640px, 920px);
-    align-self:flex-end;
-}
-
-.landing {
-    @include flexSpaceAround()
-}
-
-.intro {
-    align-self:center;
-        h2{
-            font-size: 50px;
+img {
+    height:40px;
+    width:40px;
+        &:nth-child(1){
+        height:100%;
+        width:100%;
         }
-
-        p{
-            font-size: 25px;
-        }   
 }
+
+.slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width:100%;
+    height: 100vh;
+    background: linear-gradient(to left, #ba7453, #d1a984); 
+    z-index: -1;
+}
+
+nav {
+    display: grid;
+    grid-template-columns: 10% 1fr 1fr 10%;
+    min-height: 10vh;
+    color: white;
+    align-items: center;
+  }
+
+  #Logo {
+      grid-column: 2/3;
+      font-size: 24px;
+  }
+
+  .hamburger{
+      justify-self: end;
+  }
+
+  section {
+      display: flex;
+      height: 80vh;
+      justify-content: center;
+      align-items: center;
+  }
+
+  .hero {
+      height: 100%;
+      width: 100%;
+      position: relative;
+        &::after{
+            content: "";
+            background: black;
+            width:100%;
+            height: 100%;
+            position: absolute;
+            left:0;
+            top:0;
+            opacity: 0.3;
+        }
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit:cover;
+            }
+  }
+
+  .headline {
+      position: absolute;
+      top: 70%;
+      left: 10%;
+      font-size: 100px;
+      transform: translate(-20%, 70%);
+      color:white;
+      z-index: 3;
+  }
